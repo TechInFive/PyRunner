@@ -1,5 +1,6 @@
 import pygame
 import sys
+from Background import Background
 from Player import Player
 
 from constants import FONT_COLOR, FPS, SCREEN_HEIGHT, SCREEN_WIDTH
@@ -14,6 +15,7 @@ pygame.display.set_caption("PyRunner")
 def main():
     clock = pygame.time.Clock()
     player = Player()
+    background = Background()
 
     while True:
         for event in pygame.event.get():
@@ -24,9 +26,11 @@ def main():
                 if event.key == pygame.K_SPACE:
                     player.jump()
 
+        background.update()
         player.update()
 
         screen.fill((255, 255, 255))  # White background
+        background.draw(screen)
         player.draw(screen)
 
         pygame.display.flip()
