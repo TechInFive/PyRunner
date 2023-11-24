@@ -9,7 +9,7 @@ GRAVITY = 1  # Gravity effect
 
 SCALE = 3
 PLAYER_HEIGHT = 60 * SCALE
-PLAYER_WIDTH = 60 * SCALE
+PLAYER_WIDTH = 30 * SCALE
 HEAD_RADIUS = 10 * SCALE
 BODY_LENGTH = 20 * SCALE
 ARM_LENGTH = 20 * SCALE
@@ -53,8 +53,8 @@ class Player:
             self.state_change_timer = 0
 
     def get_rect(self):
-        # Return the current bounding box of the player
-        return pygame.Rect(self.x, self.y, self.width, self.height)
+        # Return the colliderect bounding box of the player
+        return pygame.Rect(self.x  + self.width // 2, self.y, self.width // 2, self.height)
 
     def draw_circle(self, screen, center, radius):
         pygame.draw.circle(screen, (0, 0, 0), center, radius)
